@@ -1,7 +1,7 @@
 ## Documentation
 Deployed here:
 ### User Sign Up
-`POST /api/auth/signup`
+`POST` /api/auth/signup  
 Body:
 ```javascript
 {
@@ -9,8 +9,8 @@ Body:
     password: 'password'
 }
 ```
-`POST /api/auth/signin`
-Returns a token
+`POST` /api/auth/signin  
+Returns a token  
 Body:
 ```javascript
 {
