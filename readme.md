@@ -23,7 +23,7 @@ Body:
     password: string
 }
 ```
-Returns a token
+Upon successful sign in, the user's `id` and a `token` is returned.
 ### Status Codes
 bestBud returns the following status codes in its API:
 
