@@ -18,3 +18,4 @@ Body:
     password: 'password'
 }
 ```
+Returns a token
