@@ -9,10 +9,20 @@ module.exports = {
 			password: process.env.PASSWORD
 		},
 		migrations: {
-			directory: './data/seeds'
+			directory: './database/migrations'
 		},
 		seeds: {
-			directory: './data/seeds'
+			directory: './database/seeds'
+		}
+	},
+	production: {
+		client: 'pg',
+		connection: process.env.DATABASE_URL,
+		migrations: {
+			directory: './database/migrations'
+		},
+		seeds: {
+			directory: './database/seeds'
 		}
 	}
 };
