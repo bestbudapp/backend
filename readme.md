@@ -26,6 +26,7 @@ Body:
 Returns a token
 ### Status Codes
 bestBud returns the following status codes in its API:
+
 | Status Code | Description |
 | :--- | :--- |
 | 200 | `OK` |
