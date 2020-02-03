@@ -6,22 +6,41 @@ const User = require('./authModel');
 const app = express.Router();
 
 // user sign up
-app.post('signup', validateUser, (request, response) => {
+app.post('/signup', validateUser, (request, response) => {
     let user = request.body;
     const hash = bcrypt.hashSync(request.body.password, 10);
     user.password = hash;
     
     // writing out in case more information than needed is provided in body of request
-    Users.signup({username: user.username, password: user.password})
-        .then(res => response.status(200).json({message: 'successfully signed user up'}))
+    User.signUp({username: user.username, password: user.password})
+        .then(res => response.status(200).json({message: 'successfully signed up 🎉'}))
         // will talk with front end to see if there is anything they want returned
         .catch(err => {
-            response.status(500).json({message: 'error signing user up'});
+            response.status(500).json({message: 'error signing up'});
             console.log(err);
         });
 });
 
-// validate body of request on sign up and sign in
+// user sign in
+app.post('/signin', validateUser, (request, response) => {
+    const {username, password} = request.body;
+
+    User.find({username})
+        .then(res => {
+            if (res && bcrypt.compareSync(password, res.password)) {
+                const token = generateToken(res);
+                response.status(200).json({message: 'successfully signed in ', token: token});
+            } else {
+                response.status(500).json({message: 'invalid credentials'});
+            };
+        })
+        .catch(err => {
+            response.status(500).json({message: 'error signing in'});
+            console.log(err);
+        });
+});
+
+// validating body on sign up and sign in
 function validateUser(request, response, next) {
     if (!request.body.username) {
         response.status(404).json({message: 'username missing from body'});
@@ -30,6 +49,21 @@ function validateUser(request, response, next) {
     } else {
         next();
     };
+};
+
+// generating token
+function generateToken(user) {
+    const payload = {
+        userId: user.id,
+        username: user.username
+    };
+
+    const options = {
+        expiresIn: '1d'
+    };
+
+    // will add secret to heroku environment variables
+    return jwt.sign(payload, 'will add secret to heroku environment variables', options);
 };
 
 module.exports = app;
