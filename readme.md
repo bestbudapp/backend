@@ -1,7 +1,9 @@
-## Documentation
+## bestBud API Documentation
 Deployed here:
 ### User Sign Up
-`POST` /api/auth/signup  
+```HTTP
+POST /api/auth/signup
+```
 Body:
 ```javascript
 {
@@ -10,7 +12,9 @@ Body:
 }
 ```
 ### User Sign In
-`POST` /api/auth/signin  
+```HTTP
+POST /api/auth/signin
+```
 Body:
 ```javascript
 {
@@ -19,3 +23,11 @@ Body:
 }
 ```
 Returns a token
+### Status Codes
+| Status Code | Description |
+| :--- | :--- |
+| 200 | `OK` |
+| 201 | `CREATED` |
+| 400 | `BAD REQUEST` |
+| 404 | `NOT FOUND` |
+| 500 | `INTERNAL SERVER ERROR` |
