@@ -9,8 +9,8 @@ Body:
     password: 'password'
 }
 ```
+### User Sign In
 `POST` /api/auth/signin  
-Returns a token  
 Body:
 ```javascript
 {
