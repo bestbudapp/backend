@@ -1,5 +1,5 @@
 ## bestBud API Documentation
-Deployed here:
+Deployed here: https://bestbudapp.herokuapp.com/
 ### Sign Up
 ```HTTP
 POST /api/auth/signup
