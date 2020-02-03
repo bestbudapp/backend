@@ -6,7 +6,7 @@ const signUp = user => {
 };
 
 const find = username => {
-    return database('users').where(username).first();
+    return database('users').where({username}).first();
 };
 
 module.exports = {
