@@ -1,29 +1,31 @@
 ## bestBud API Documentation
 Deployed here:
-### User Sign Up
+### Sign Up
 ```HTTP
 POST /api/auth/signup
 ```
 Body:
 ```javascript
 {
-    username: 'username',
-    password: 'password'
+    username: string,
+    password: string
 }
 ```
-### User Sign In
+The `username` value must be unique for every user.
+### Sign In
 ```HTTP
 POST /api/auth/signin
 ```
 Body:
 ```javascript
 {
-    username: 'username',
-    password: 'password'
+    username: string,
+    password: string
 }
 ```
 Returns a token
 ### Status Codes
+bestBud returns the following status codes in its API:
 | Status Code | Description |
 | :--- | :--- |
 | 200 | `OK` |
