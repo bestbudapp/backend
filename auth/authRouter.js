@@ -16,7 +16,7 @@ app.post('/signup', validateUser, (request, response) => {
     User.signUp({username: user.username, password: user.password})
         // .then(res => response.status(200).json({message: 'successfully signed up 🎉'}))
         .then(res => {
-            User.find(user.username)
+            User.fetch(user.username)
                 .then(res => {
                     const token = generateToken(res);
                     response.status(200).json({message: 'successfully signed up 🎉', id: res.id, token: token});
@@ -34,7 +34,7 @@ app.post('/signup', validateUser, (request, response) => {
 app.post('/signin', validateUser, (request, response) => {
     const {username, password} = request.body;
 
-    User.find(username)
+    User.fetch(username)
         .then(res => {
             if (res && bcrypt.compareSync(password, res.password)) {
                 const token = generateToken(res);

@@ -5,11 +5,12 @@ const signUp = user => {
     return database('users').insert(user);
 };
 
-const find = username => {
+// fetch user
+const fetch = username => {
     return database('users').where({username}).first();
 };
 
 module.exports = {
     signUp,
-    find
+    fetch
 };
