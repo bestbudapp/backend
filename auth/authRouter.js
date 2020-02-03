@@ -72,7 +72,7 @@ function generateToken(user) {
     };
 
     // will add secret to heroku environment variables
-    return jwt.sign(payload, 'will add secret to heroku environment variables', options);
+    return jwt.sign(payload, process.env.SECRET, options);
 };
 
 module.exports = app;
