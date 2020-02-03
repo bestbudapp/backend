@@ -12,6 +12,7 @@ Body:
 }
 ```
 The `username` value must be unique for every user.
+
 Upon successful sign up, the user's `id` and a `token` is returned.
 ### Sign In
 ```HTTP
