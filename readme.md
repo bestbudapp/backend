@@ -84,6 +84,7 @@ POST /api/cabinet/:id
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `:id` | `string` | User ID |
+
 Body:
 ```javascript
 {
