@@ -65,7 +65,7 @@ You can filter by `name`, `flavors`, `race`, `positive_effects`, `negative_effec
 The `query` for `rating` is still a string.
 ### Fetch a Single Strain
 ```HTTP
-POST /api/strains/:id
+GET /api/strains/:id
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |

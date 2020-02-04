@@ -4,7 +4,7 @@ const Strains = require('./strainsModel');
 const app = express.Router();
 
 // fetch all strains with a limit and offset, returns an array
-app.get('/', validateFetch, (request, response) => {
+app.post('/', validateFetch, (request, response) => {
     const {limit, offset} = request.body;
 
     Strains.fetch(limit, offset)
@@ -16,7 +16,7 @@ app.get('/', validateFetch, (request, response) => {
 });
 
 // fetch strains with a filter and a query, returns an array
-app.get('/query', validateFetchBy, (request, response) => {
+app.post('/query', validateFetchBy, (request, response) => {
     const {filter, query, limit, offset} = request.body;
 
     Strains.fetchBy(filter, query, limit, offset)
