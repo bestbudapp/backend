@@ -18,7 +18,7 @@ exports.up = (knex, Promise) => {
             table.string('negative_effects');
             table.string('medical_uses');
             table.string('rating');
-            table.string('description');
+            table.string('description', 4000);
         })
 };
 
