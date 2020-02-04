@@ -1,6 +1,13 @@
-import seeder from 'knex-csv-seeder';
+const path = require('path');
+const seeder = require('knex-seed-file');
 
-exports.seed = seeder({
-	table: 'users',
-	file: '../../test.csv'
-});
+exports.seed = (knex, Promise) => {
+	return seeder(knex, './test.csv', 'strains',
+		{
+			mapTo: ['id', 'name', 'flavors', 'race', 'positive_effects', 'negative_effects', 'medical_uses', 'rating', 'description'],
+			columnSeparator: '%',
+			rowSeparator: '\r',
+			ignoreFirstLine: true
+		}
+	);
+};

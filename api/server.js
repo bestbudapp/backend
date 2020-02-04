@@ -16,6 +16,6 @@ app.use(cors());
 app.use(helmet());
 
 app.use('/api/auth', authRouter);
-app.use('/api/strains', authMiddleware, strainsRouter);
+app.use('/api/strains', strainsRouter);
 
 module.exports = app;
