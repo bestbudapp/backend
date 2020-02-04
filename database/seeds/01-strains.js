@@ -1,13 +1,13 @@
-const path = require('path');
-const seeder = require('knex-seed-file');
+const csv = require('csvtojson');
 
 exports.seed = (knex, Promise) => {
-	return seeder(knex, path.resolve('./database/seeds/strains.csv'), 'strains',
-		{
-			mapTo: ['id', 'name', 'flavors', 'race', 'positive_effects', 'negative_effects', 'medical_uses', 'rating', 'description'],
-			columnSeparator: '%',
-			rowSeparator: '\r',
-			ignoreFirstLine: true
-		}
-	);
+	return csv({
+        trim: true,
+        headers: ["id", "name", "flavors", "race", "positive_effects", "negative_effects", "medical_uses", "rating", "description"],
+        delimiter: "%"
+	})
+		.fromFile("./database/seeds/strains.csv")
+		.then(jsonObj => {
+			return knex('strains').insert(jsonObj);
+		});
 };
