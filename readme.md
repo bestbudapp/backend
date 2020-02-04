@@ -38,6 +38,7 @@ Body:
 }
 ```
 There are about 1500 strains, so you don't want to load them all at once.
+
 Example:
 ```javascript
 {
@@ -60,6 +61,7 @@ Body:
 }
 ```
 You can filter by `name`, `flavors`, `race`, `positive_effects`, `negative_effects`, `medical_conditions`, and `rating`.
+
 The `query` for `rating` is still a string.
 ### Fetch a Single Strain
 ```HTTP
