@@ -8,9 +8,21 @@ exports.up = (knex, Promise) => {
             table.string('password')
                 .notNullable();
         })
+        .createTable('strains', table => {
+            table.increments();
+            table.string('name');
+            table.string('flavors');
+            table.string('race');
+            table.string('positive_effects');
+            table.string('negative_effects');
+            table.string('medical_uses');
+            table.float('rating');
+            table.text('description');
+        })
 };
 
 exports.down = (knex, Promise) => {
     return knex.schema
+        .dropTableIfExists('strains')
         .dropTableIfExists('users');
 };
