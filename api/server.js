@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const authRouter = require('../auth/authRouter');
 const authMiddleware = require('../auth/authMiddleware');
 const strainsRouter = require('../strains/strainsRouter');
+const cabinetRouter = require('../cabinet/cabinetRouter');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(helmet());
 
 app.use('/api/auth', authRouter);
-app.use('/api/strains', strainsRouter);
+app.use('/api/strains', authMiddleware, strainsRouter);
+app.use('/api/cabinet', authMiddleware, cabinetRouter);
 
 module.exports = app;

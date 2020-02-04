@@ -43,10 +43,10 @@ Example:
 ```javascript
 {
     limit: 30,
-    offset: 30
+    offset: 60
 }
 ```
-This will return 30 results, skipping the first 30. This is ideal for pagination.
+This will return 30 results, skipping the first 60. This is ideal for pagination.
 ### Query Strains
 ```HTTP
 POST /api/strains/query
@@ -69,7 +69,34 @@ GET /api/strains/:id
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| `:id` | `string` | The strain's id |
+| `:id` | `string` | Strain ID |
+### Fetch User's Cabinet
+```HTTP
+GET /api/cabinet/:id
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `:id` | `string` | User ID |
+### Add Strain to User's Cabinet
+```HTTP
+POST /api/cabinet/:id
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `:id` | `string` | User ID |
+Body:
+```javascript
+{
+    strain_id: number
+}
+```
+### Delete Strain from User's Cabinet
+```HTTP
+DELETE /api/cabinet/:id
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `:id` | `string` | Cabinet ID |
 ### Status Codes
 bestBud returns the following status codes in its API:
 
