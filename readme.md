@@ -102,10 +102,6 @@ DELETE /api/cabinet/:id
 ```HTTP
 POST /api/recommender
 ```
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| `:id` | `string` | User ID |
-
 Body:
 ```javascript
 {
