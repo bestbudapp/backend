@@ -78,7 +78,7 @@ GET /api/cabinet/:id
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `:id` | `string` | User ID |
-### Add Strain to User's Cabinet
+## Add Strain to User's Cabinet
 ```HTTP
 POST /api/cabinet/:id
 ```
