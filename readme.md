@@ -100,7 +100,7 @@ DELETE /api/cabinet/:id
 | `:id` | `string` | Cabinet ID |
 ### Strain Recommender
 ```HTTP
-POST /api/recommender/:id
+POST /api/recommender
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -112,14 +112,6 @@ Body:
     input: string
 }
 ```
-### Fetch User's Recommended Strains
-```HTTP
-GET /api/recommender/:id
-```
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| `:id` | `string` | User ID |
-User's `input` from previous endpoint will also be returned.
 ### Status Codes
 bestBud returns the following status codes in its API:
 

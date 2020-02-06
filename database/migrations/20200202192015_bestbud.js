@@ -38,10 +38,27 @@ exports.up = (knex, Promise) => {
                 .inTable('strains');
             // cascade? strain information won't be modified
         })
+
+        .createTable('recommended_strains', table => {
+            table.increments();
+            table.integer('user_id')
+                .notNullable()
+                .unsigned()
+                .references('id')
+                .inTable('users')
+                .onUpdate('CASCADE')
+                .onDelete('CASCADE');
+            table.string('user_input')
+                .notNullable();
+            table.string('recommended_strain_ids')
+                .notNullable();
+        });
 };
 
 exports.down = (knex, Promise) => {
     return knex.schema
+        .dropTableIfExists('recommended_strains')
+        .dropTableIfExists('cabinet')
         .dropTableIfExists('strains')
         .dropTableIfExists('users');
 };
