@@ -1,4 +1,4 @@
-## bestBud API Documentation
+<h2 align='center'>Grüvee</h2>
 Deployed here: https://bestbudapp.herokuapp.com/
 ### Sign Up
 ```HTTP
@@ -98,6 +98,28 @@ DELETE /api/cabinet/:id
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `:id` | `string` | Cabinet ID |
+### Strain Recommender
+```HTTP
+POST /api/recommender/:id
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `:id` | `string` | User ID |
+
+Body:
+```javascript
+{
+    input: string
+}
+```
+### Fetch User's Recommended Strains
+```HTTP
+GET /api/recommender/:id
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `:id` | `string` | User ID |
+User's `input` from previous endpoint will also be returned.
 ### Status Codes
 bestBud returns the following status codes in its API:
 
