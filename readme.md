@@ -1,6 +1,6 @@
 <h2 align='center'>bestBud API Documentation</h2>
-Deployed here: https://bestbudapp.herokuapp.com/
 
+Deployed here: https://bestbudapp.herokuapp.com/
 ### Sign Up
 ```HTTP
 POST /api/auth/signup
