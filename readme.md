@@ -1,7 +1,7 @@
-<h2 align='center'>bestBud API Documentation</h2>
+<h1 align='center'>bestBud API Documentation</h1>
 
 Deployed here: https://bestbudapp.herokuapp.com/
-### Sign Up
+## Sign Up
 ```HTTP
 POST /api/auth/signup
 ```
@@ -15,7 +15,7 @@ Body:
 The `username` value must be unique for every user.
 
 Upon successful sign up, the user's `id` and a `token` is returned.
-### Sign In
+## Sign In
 ```HTTP
 POST /api/auth/signin
 ```
@@ -27,7 +27,7 @@ Body:
 }
 ```
 Upon successful sign in, the user's `id` and a `token` is returned.
-### Fetch All Strains
+## Fetch All Strains
 ```HTTP
 POST /api/strains
 ```
@@ -48,7 +48,7 @@ Example:
 }
 ```
 This will return 30 results, skipping the first 60. This is ideal for pagination.
-### Query Strains
+## Query Strains
 ```HTTP
 POST /api/strains/query
 ```
@@ -64,14 +64,14 @@ Body:
 You can filter by `name`, `flavors`, `race`, `positive_effects`, `negative_effects`, `medical_conditions`, and `rating`.
 
 The `query` for `rating` is still a string.
-### Fetch a Single Strain
+## Fetch a Single Strain
 ```HTTP
 GET /api/strains/:id
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `:id` | `string` | Strain ID |
-### Fetch User's Cabinet
+## Fetch User's Cabinet
 ```HTTP
 GET /api/cabinet/:id
 ```
@@ -92,14 +92,14 @@ Body:
     strain_id: number
 }
 ```
-### Delete Strain from User's Cabinet
+## Delete Strain from User's Cabinet
 ```HTTP
 DELETE /api/cabinet/:id
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `:id` | `string` | Cabinet ID |
-### Strain Recommender
+## Strain Recommender
 ```HTTP
 POST /api/recommender
 ```
@@ -109,7 +109,7 @@ Body:
     input: string
 }
 ```
-### Status Codes
+## Status Codes
 bestBud returns the following status codes in its API:
 
 | Status Code | Description |
